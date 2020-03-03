@@ -2,7 +2,7 @@ class ElevatorsController {
   constructor(elevators) {
     this.elevators = elevators;
     this.callsQueue = [];
-    this.hanldedFloors = {};
+    this.handledFloors = {};
   }
 
   findClosestCar(requestedLevel) {
@@ -31,6 +31,6 @@ class ElevatorsController {
       return value !== level;
     });
 
-    this.hanldedFloors[level] = true;
+    this.handledFloors[level] = true;
   }
 }

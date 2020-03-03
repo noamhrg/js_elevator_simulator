@@ -20,20 +20,22 @@ const setFloorsButtonsListener = () => {
   const floorsButtons = document.querySelectorAll('.floor-button');
 
   Array.from(floorsButtons).forEach(function(button) {
-    button.addEventListener('click', function(event) {
-      const requestedLevel = event.target.getAttribute('data-level');
-
-      if (
-        elevatorsController.hanldedFloors.hasOwnProperty(requestedLevel) &&
-        elevatorsController.hanldedFloors[requestedLevel]
-      ) {
-        return false;
-      }
-
-      elevatorsController.callsQueue.push(requestedLevel);
-      elevatorCallsHandler(requestedLevel);
-    });
+    button.addEventListener('click', floorButtonsClickHandler);
   });
+};
+
+const floorButtonsClickHandler = event => {
+  const requestedLevel = event.target.getAttribute('data-level');
+
+  if (
+    elevatorsController.handledFloors.hasOwnProperty(requestedLevel) &&
+    elevatorsController.handledFloors[requestedLevel]
+  ) {
+    return false;
+  }
+
+  elevatorsController.callsQueue.push(requestedLevel);
+  elevatorCallsHandler(requestedLevel);
 };
 
 const initElevatorsInstances = () => {

@@ -37,7 +37,7 @@ class Elevator {
   freeElevator() {
     this.busy = false;
 
-    delete elevatorsController.hanldedFloors[this.currentFloor];
+    delete elevatorsController.handledFloors[this.currentFloor];
 
     const elevatorAvailableEvent = new CustomEvent('elevatoravailable');
     dispatchEvent(elevatorAvailableEvent);
