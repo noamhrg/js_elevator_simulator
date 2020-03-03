@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elevator Task</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="building-structure">
+        <div class="building-wrapper">
+          <div class="building">
+            <div class="elevator" data-elevator-name="elevator-1">
+              <div class="car"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+            </div>
+
+            <div class="floors-buttons-wrapper">
+              <div class="floors-buttons">
+                <div class="floor-button-wrapper">
+                  <button class="floor-button" data-level="6">6</button>
+                </div>
+                <div class="floor-button-wrapper">
+                  <button class="floor-button" data-level="5">5</button>
+                </div>
+                <div class="floor-button-wrapper">
+                  <button class="floor-button" data-level="4">4</button>
+                </div>
+                <div class="floor-button-wrapper">
+                  <button class="floor-button" data-level="3">3</button>
+                </div>
+                <div class="floor-button-wrapper">
+                  <button class="floor-button" data-level="2">2</button>
+                </div>
+                <div class="floor-button-wrapper">
+                  <button class="floor-button" data-level="1">1</button>
+                </div>
+                <div class="floor-button-wrapper">
+                  <button class="floor-button" data-level="0">L</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="elevator" data-elevator-name="elevator-2">
+              <div class="car"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/utils/utils.js"></script>
+    <script src="./js/controllers/ElevatorsController.js"></script>
+    <script src="./js/models/Elevator.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

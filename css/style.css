@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+  width: 100vw;
+}
+
+.building-structure {
+  width: 80%;
+  bottom: 0;
+  background: #929292;
+}
+
+.building-wrapper {
+  height: 100%;
+}
+
+.building {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.elevator {
+  width: 10%;
+  height: 100%;
+  background: black;
+  display: inline-block;
+  position: relative;
+}
+
+.car {
+  height: 70px;
+  width: 50%;
+  background-color: grey;
+  position: absolute;
+  bottom: 0px;
+  left: 25%;
+  background: grey;
+  background-image: url('../assets/elevator.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.level {
+  height: 120px;
+  z-index: 110;
+  position: relative;
+}
+
+.level::before {
+  content: '';
+  width: 100%;
+  background: grey;
+  height: 1px;
+  position: absolute;
+  display: block;
+}
+
+.floors-buttons {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.floor-button-wrapper .floor-button {
+  background: #45d845;
+  color: #000000;
+  border: none;
+  border-radius: 50%;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  padding: 4px 10px;
+}
+
+.floor-button-wrapper .floor-button:hover {
+  cursor: pointer;
+}
+
+.floor-button-wrapper .floor-button:focus {
+  outline: 0;
+}
+
+.floor-button-wrapper .floor-button.active {
+  background: #d81414;
+  color: white;
+  border: 1px solid white;
+}
