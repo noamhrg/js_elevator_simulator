@@ -1,3 +1,6 @@
+/** @description Finds transition event for browser
+ *  @return transition-end name for browser
+ */
 function whichTransitionEvent() {
   let t,
     el = document.createElement('fakeelement');
@@ -16,11 +19,14 @@ function whichTransitionEvent() {
   }
 }
 
+/** @description Elevator arrived bell function
+ */
 const playElevatorSound = () => {
   const bell = document.createElement('audio');
   bell.src = './assets/elevator.mp3';
 
   bell.play();
 
+  // Prevent memory leak
   bell.remove();
 };

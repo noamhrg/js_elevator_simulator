@@ -8,6 +8,9 @@ class Elevator {
     this.speedPerFloor = 700; // milliseconds
   }
 
+  /** @description Sends elevator car to destination floor
+   * @param {number} level The floor to send car to
+   */
   goTo(level) {
     let distance = Math.abs(this.currentFloor - level);
     let rideDuration = this.speedPerFloor * distance;
@@ -25,6 +28,9 @@ class Elevator {
     }, rideDuration + this.restTime);
   }
 
+  /** @description Fires when elevator reaches to destination floor
+   * @param {number} level The floor the elevator arrived to
+   */
   arrived(level) {
     playElevatorSound();
     this.currentFloor = level;
@@ -34,12 +40,17 @@ class Elevator {
       .classList.remove('active');
   }
 
+  /** @description Frees elevator after elevator rest time
+                   dispatches elevator free event if elevators call queue is bigger than 0
+   */
   freeElevator() {
     this.busy = false;
 
     delete elevatorsController.handledFloors[this.currentFloor];
 
-    const elevatorAvailableEvent = new CustomEvent('elevatoravailable');
-    dispatchEvent(elevatorAvailableEvent);
+    if (elevatorsController.callsQueue.length) {
+      const elevatorAvailableEvent = new CustomEvent('elevatoravailable');
+      dispatchEvent(elevatorAvailableEvent);
+    }
   }
 }

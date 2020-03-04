@@ -6,16 +6,22 @@ window.onload = () => {
   appInit();
 };
 
+/** @description App initiator.
+ */
 const appInit = () => {
   eventListenersSetter();
   initElevatorsInstances();
 };
 
+/** @description Event listeners setter
+ */
 const eventListenersSetter = () => {
   setFloorsButtonsListener();
   elevatorFreeListener();
 };
 
+/** @description Floors buttons click event setter.
+ */
 const setFloorsButtonsListener = () => {
   const floorsButtons = document.querySelectorAll('.floor-button');
 
@@ -24,6 +30,9 @@ const setFloorsButtonsListener = () => {
   });
 };
 
+/** @description An handler for the floors buttons click listener.
+ * @param {object} event The event of the button click.
+ */
 const floorButtonsClickHandler = event => {
   const requestedLevel = event.target.getAttribute('data-level');
 
@@ -38,6 +47,8 @@ const floorButtonsClickHandler = event => {
   elevatorCallsHandler(requestedLevel);
 };
 
+/** @description Initiates Elevator object instances with refernce to elevator car in the DOM.
+ */
 const initElevatorsInstances = () => {
   const elevators = [];
   const elevatorsCars = document.querySelectorAll('.elevator .car');
@@ -51,12 +62,9 @@ const initElevatorsInstances = () => {
   });
 };
 
-const elevatorFreeListener = () => {
-  window.addEventListener('elevatoravailable', function() {
-    elevatorQueueHandler();
-  });
-};
-
+/** @description Elevator calls handler
+ * @param requestedLevel The requested level
+ */
 const elevatorCallsHandler = requestedLevel => {
   const closestCar = elevatorsController.findClosestCar(requestedLevel);
 
@@ -69,6 +77,17 @@ const elevatorCallsHandler = requestedLevel => {
   }
 };
 
+/** @description Global listener setter to identify when an elevator becomes free in case of a jam
+ */
+const elevatorFreeListener = () => {
+  window.addEventListener('elevatoravailable', function() {
+    elevatorQueueHandler();
+  });
+};
+
+/** @description Elevator calls queue handler
+ *               fires when elevator available event is dispatched
+ */
 const elevatorQueueHandler = () => {
   if (elevatorsController.callsQueue.length === 0) {
     return false;

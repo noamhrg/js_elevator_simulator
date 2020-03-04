@@ -5,6 +5,10 @@ class ElevatorsController {
     this.handledFloors = {};
   }
 
+  /** @description Finds the closest avaiable car
+   * @param {number} requestedLevel The level destination
+   * @return {object} closest Elevator object is returned, if no available elevator returns false
+   */
   findClosestCar(requestedLevel) {
     const availableElevators = this.elevators.filter(
       elevator => !elevator.busy
@@ -24,6 +28,11 @@ class ElevatorsController {
     }
   }
 
+  /** @description Sends elevator to destination floor,
+   *               cleans calls queue and marks floor as handled
+   * @param elevator The closest available elevator
+   * @param level The level destination
+   */
   sendElevator(elevator, level) {
     elevator.goTo(level);
 
